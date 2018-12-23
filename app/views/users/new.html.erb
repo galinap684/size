@@ -1,0 +1,63 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sizafy2</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'users' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+
+
+
+
+<%= form_for @user, html: {id:'msform'} do |f| %>
+<% if @user.errors.any? %>
+<div class ="error_messages">
+  <h2>form is invalid</h2>
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+    </div>
+    <% end %>
+
+    <ul id="progressbar">
+      <li class="active">Account Setup</li>
+      <li>Personal Details</li>
+      <li>Let's Shop</li>
+    </ul>
+<!--
+    <fieldset>
+
+      <input type="text" name="email" placeholder="Email" />
+      <input type="password" name="pass" placeholder="Password" />
+      <input type="password" name="cpass" placeholder="Confirm Password" />
+      <input type="button" name="next" class="next action-button" value="Next" />
+    </fieldset>-->
+    <fieldset>
+      <h2 class="fs-title">Create your account</h2>
+      <h3 class="fs-subtitle">Welcome, Beautiful!</h3>
+  <div class="field">
+    <%= f.label :email %> <br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password %> <br />
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %>
+  </div>
+<%= f.submit "Sign Up", :class => 'next action-button' %>
+  </fieldset>
+  <% end %>
+
+</body>
+</html>
