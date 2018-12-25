@@ -81,7 +81,6 @@ body {
 }
 
 .space{
-
   margin-right: 10px;
 }
 
@@ -165,4 +164,22 @@ body {
 .clothing-item .selection input[type=radio]:checked ~ label {
   background-color: hotpink;
 	color: white;
+}
+
+
+#msform .action-button:hover, .previous:hover, #msform .action-button:focus {
+	box-shadow: 0 0 0 2px white, 0 0 0 3px hotpink;
+}
+
+
+.previous {
+	width: 100px;
+	background: hotpink;
+
+	color: white;
+	border: 0 none;
+	border-radius: 1px;
+
+	padding: 10px 10px;
+	margin: 10px 5px;
 }

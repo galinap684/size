@@ -16,7 +16,7 @@
     </div>
 
     <div class="fs-subtitle">
-    <%= f.label "Bust: ", :class => "space" %>
+    <%= f.label "Bust:", :class => "space" %>
     <%= f.select :bust, (32..40) %>
     <%= f.label " inches"%>
 
@@ -24,17 +24,19 @@
 
 
     <div class="fs-subtitle">
-    <%= f.label "Waist: ", :class => "space"  %>
+    <%= f.label "Waist:", :class => "space"  %>
     <%= f.select :waist, (23..51)  %>
     <%= f.label " inches"%>
     </div>
 
 
     <div class="fs-subtitle">
-    <%= f.label "Hips: ",  :class => "space" %>
+    <%= f.label "Hips:",  :class => "space" %>
     <%= f.select :hips, (32..50)  %>
     <%= f.label " inches"%>
     </div>
+
+  <%= link_to "Previous", signup_path, :class => 'previous'  %>
 
 
   <%= f.submit "Continue", :class => 'submit action-button' %>
