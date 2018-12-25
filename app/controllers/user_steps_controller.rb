@@ -16,10 +16,7 @@ class UserStepsController < ApplicationController
   private
 
   def allowed_params
-    params.require(:user).permit(:bust, :waist)
+    params.require(:user).permit(:bust, :waist, :hips, :name)
   end
-
-
-
 
 end
