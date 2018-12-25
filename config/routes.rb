@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   resources :users
   resources :sessions
+  resources :user_steps
 
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'

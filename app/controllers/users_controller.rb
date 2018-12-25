@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
   if @user.save
     session[:user_id] = @user.id
-    redirect_to root_url, notice: "Thank you for signing up!"
+    redirect_to user_steps_path
     #'/after_signup/:id(.:format)'
   else
     render '/new'
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:email, :password, :password_confirmation, :bust, :waist)
   end
 
 end
