@@ -32,6 +32,8 @@ gem 'jbuilder', '~> 2.5'
 
  gem 'wicked'
 
+ gem 'hirb'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

@@ -15,8 +15,13 @@ class UserStepsController < ApplicationController
 
   private
 
+
   def allowed_params
     params.require(:user).permit(:bust, :waist, :hips, :name)
+  end
+
+  def finish_wizard_path
+    '/choices'
   end
 
 end

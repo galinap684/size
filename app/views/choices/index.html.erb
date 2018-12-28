@@ -1,0 +1,48 @@
+
+<p>
+
+  <% if current_user %>
+  Logged in as <%= current_user.name %> |
+  <%= link_to "Log out", session_path("current"), method: "delete" %>
+  <% else %>
+
+<% end %>
+</p>
+
+<form id="msform">
+
+  <ul id="progressbar">
+    <li>Account Setup</li>
+    <li>Personal Details</li>
+    <li  class="active">Let's Shop</li>
+  </ul>
+
+<fieldset>
+  <h2 class="fs-title">Let's Shop!</h2>
+  <h3 class="fs-subtitle">What would you like to start shopping for today?</h3>
+
+  <div class="clothing-item">
+    <div class="selection">
+      <input id="dresses" name="clothing-item" type="radio">
+      <label for="dresses">Dresses</label>
+    </div>
+    <div class="selection">
+      <input id="tops" name="clothing-item" type="radio">
+      <label for="tops">Tops</label>
+    </div>
+    <div class="selection">
+      <input id="bottoms" name="clothing-item" type="radio">
+      <label for="bottoms">Bottoms</label>
+    </div>
+    <div class="selection">
+      <input id="swimwear" name="clothing-item" type="radio">
+      <label for="swimwear">Swimwear</label>
+    </div>
+  </div>
+
+
+  <%= link_to "Previous", '/user_steps/personal', :class => 'previous'  %>
+  <input type="button" name="next" class="next action-button" value="Next" />
+</fieldset>
+
+</form>
