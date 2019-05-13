@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_25_042008) do
+ActiveRecord::Schema.define(version: 2019_05_13_000157) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "users", force: :cascade do |t|
     t.string "email"
@@ -21,6 +24,9 @@ ActiveRecord::Schema.define(version: 2018_12_25_042008) do
     t.integer "waist"
     t.integer "hips"
     t.string "name"
+    t.string "revolve"
+    t.string "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
 end

@@ -23,26 +23,24 @@
 
   <div class="clothing-item">
     <div class="selection">
-      <input id="dresses" name="clothing-item" type="radio">
-      <label for="dresses">Dresses</label>
+    <%= link_to "Tops", '/Tops', :class => 'choiceButton' %>
     </div>
     <div class="selection">
-      <input id="tops" name="clothing-item" type="radio">
-      <label for="tops">Tops</label>
+    <%= link_to "Bottoms", '/bottoms', :class => 'choiceButton' %>
     </div>
     <div class="selection">
-      <input id="bottoms" name="clothing-item" type="radio">
-      <label for="bottoms">Bottoms</label>
+      <%= link_to "Swimwear", '/swimwear', :class => 'choiceButton' %>
     </div>
     <div class="selection">
-      <input id="swimwear" name="clothing-item" type="radio">
-      <label for="swimwear">Swimwear</label>
+      <%= link_to "Dresses", '/dresses', :class => 'choiceButton' %>
     </div>
+
   </div>
 
 
+
   <%= link_to "Previous", '/user_steps/personal', :class => 'previous'  %>
-  <input type="button" name="next" class="next action-button" value="Next" />
+<!--  <input type="button" name="next" class="next action-button" value="Next" /> -->
 </fieldset>
 
 </form>

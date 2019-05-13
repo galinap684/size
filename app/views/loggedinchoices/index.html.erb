@@ -1,0 +1,38 @@
+
+<p>
+
+  <% if current_user %>
+  Logged in as <%= current_user.name %> |
+  <%= link_to "Log out", session_path("current"), method: "delete" %>
+  <% else %>
+
+<% end %>
+</p>
+
+<form id="msform">
+
+  <p>Hey, <%= current_user.name %>!</p>
+
+<fieldset>
+  <h3 class="fs-subtitle">What would you like to start shopping for today?</h3>
+
+  <div class="clothing-item">
+    <div class="selection">
+    <%= link_to "Tops", '/Tops', :class => 'choiceButton' %>
+    </div>
+    <div class="selection">
+    <%= link_to "Bottoms", '/bottoms', :class => 'choiceButton' %>
+    </div>
+    <div class="selection">
+      <%= link_to "Swimwear", '/swimwear', :class => 'choiceButton' %>
+    </div>
+    <div class="selection">
+      <%= link_to "Dresses", '/dresses', :class => 'choiceButton' %>
+    </div>
+
+  </div>
+
+<!--  <input type="button" name="next" class="next action-button" value="Next" /> -->
+</fieldset>
+
+</form>

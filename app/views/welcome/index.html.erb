@@ -1,10 +1,19 @@
-<p>
 
-  <% if current_user %>
-  Logged in as <%= current_user.name %> |
-  <%= link_to "Log out", session_path("current"), method: "delete" %>
-  <% else %>
-  <%= link_to "Sign Up", new_user_path %>
-  <%= link_to "Log in", new_session_path %>
+<% if current_user %>
+ Logged in as <%= current_user.name %> |
+ <%= link_to "Log out", session_path("current"), method: "delete" %>
+ <% else %>
+ <%= link_to "Sign Up", new_user_path %>
+ <%= link_to "Log in", new_session_path %>
 <% end %>
-</p>
+
+
+<section class="hero-logo-main">
+Sizafy
+</section>
+<!-- The video -->
+<%= video_tag "fashion.mp4", :size => "500x500", :class => 'myVideo', :controls => true, :autoplay => true %>
+
+
+
+<!-- Optional: some overlay text to describe the video -->

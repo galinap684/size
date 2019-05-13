@@ -1,18 +1,40 @@
 @import 'bootstrap';
 
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
-
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+@import url('https://fonts.googleapis.com/css?family=Tulpen+One');
 /*basic reset*/
 * {margin: 0; padding: 0; }
 
 html {
 	height: 100%;
-	background-color: gray;
+	background-color: white;
+}
+
+.hero-logo-main {
+  font-family: 'Tulpen One', cursive;
+  font-size: 6em;
+  color: black;
+  text-align: center;
+  padding-bottom: 15px;
+  height: 150px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.myVideo {
+
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  filter:opacity(60%);
+  transform: translateX(10%) translateY(40%);
 }
 
 body {
 	font-family: montserrat, arial, verdana;
-  background-color: gray;
+  background-color: white;
 
 }
 /*form styles*/
@@ -21,6 +43,17 @@ body {
 	margin: 50px auto;
 	text-align: center;
 	position: relative;
+}
+
+.choiceButton {
+	display: inline-block;
+  width:8em;
+  background-color: white;
+  color: black;
+  padding: 0.5em;
+  cursor: pointer;
+	border: 1px solid hotpink;
+	margin-bottom: 1em;
 }
 #msform fieldset {
 	background: white;

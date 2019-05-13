@@ -1,0 +1,2 @@
+module LoggedinchoicesHelper
+end

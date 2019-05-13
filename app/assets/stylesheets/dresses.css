@@ -1,0 +1,137 @@
+@import 'bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Satisfy');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Quicksand');
+@import url('https://fonts.googleapis.com/css?family=Tulpen+One');
+.card-container {
+  display: grid;
+  padding: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 1rem;
+}
+
+.card {
+  display: grid;
+}
+
+.card .button {
+  align-self: end;
+}
+
+.card__thumbnail {
+  padding: 0px 0px;
+  margin: 0px 0px;
+  object-fit: fill;
+  overflow: hidden;
+  height: 325px;
+}
+
+.clothing_image {
+  height: 100%;
+  width: 100%;
+}
+
+/* Simple Card styles for prettying */
+body, html {
+  font-size: 13px;
+  font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
+  padding: 0px 0px;
+  margin: 0px 0px;
+
+}
+
+body {
+  background-color: white;
+  height: 100%;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.card {
+  box-shadow: 0px 1px 5px #555;
+  background-color: white;
+}
+
+.card__title {
+  font-size: 2rem;
+  padding: .5rem;
+}
+
+.card__description {
+  padding: .25rem;
+  line-height: 1em;
+  text-align: center;
+  font-size: 13px;
+}
+
+.button {
+  display: block;
+  background-color: #E0E0E0;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  transition: .3s ease-out;
+}
+.button:hover {
+  background-color: hotpink;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: hotpink; 
+}
+
+.hero-logo {
+  font-family: 'Tulpen One', cursive;
+  font-size: 6em;
+  color: black;
+  text-align: center;
+  padding-bottom: 15px;
+  height: 150px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.filter {
+  text-align: center;
+  font-size: 13px;
+}
+
+#filter-items li {
+  display: inline;
+  list-style-type: none;
+}
+
+.sidebar {
+  float: left;
+  width: 150px;
+  height: auto;
+  background-color: white;
+  padding: 5px 5px;
+  border-right: 2px solid hotpink;
+}
+
+.rating {
+  height: 20px;
+}
+
+.brand-logo {
+  max-height: 15px;
+}
+
+.user-section {
+  height: 10px;
+  text-align: right;
+}
+
+.far-kiss {
+
+}
