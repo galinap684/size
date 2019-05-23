@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
+  has_many :collections
+
 
   def send_password_reset
   generate_token(:password_reset_token)

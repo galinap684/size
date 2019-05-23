@@ -1,35 +1,30 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Sizafy2</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-  <%= stylesheet_link_tag 'dresses' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-  <body>
 
-    <p>
 
-      <% if current_user %>
-      Logged in as <%= current_user.name %> |
-      <%= link_to "Log out", session_path("current"), method: "delete" %>
-      <% else %>
+<p>
 
-    <% end %>
-    </p>
+  <% if current_user %>
+  Logged in as <%= current_user.name %> |
+  <%= link_to "Log out", session_path("current"), method: "delete" %>
+  <% else %>
+
+<% end %>
+</p>
 
 
 <section class="hero-logo">
 Sizafy
 </section>
 
+  <%= link_to "Add Collection", '/collections', :class => 'choiceButton1' %>
+
+
+
 <section class="filter">
-  <ul id="filter-items">
+<ul id="filter-items">
 <!--  <li>Size (00, XXS) &nbsp;▼ -->
-  <li>Color &nbsp;▼
-  <li>Price ($50 - $100) &nbsp;▼
-  <li>Rating (Above 4 Stars) &nbsp;▼
+<li>Color &nbsp;▼
+<li>Price ($50 - $100) &nbsp;▼
+<li>Rating (Above 4 Stars) &nbsp;▼
 </ul>
 </section>
 
@@ -40,30 +35,27 @@ Sizafy
 <section class="card-container">
 
 
-    <% @dresses.each do |result| %>
+<% @dresses.each do |result| %>
 
 
 
-  <article class="card">
-      <figure class="card__thumbnail">
-        <!--  <%= image_tag("", class: "clothing_image") %> --> 
+<article class="card">
+  <figure class="card__thumbnail">
+    <!--  <%= image_tag("", class: "clothing_image") %> -->
 
-      </figure>
-      <main class="card__description">
-          <h6><%= result["name"] %></h5>
-          <p><%= result["brand"]%><br/></p>
-          <p><strong> $<%= result["price"]%></strong></p>
-            <p><%= result["size"]%><br/></p>
+  </figure>
+  <main class="card__description">
+      <h6><%= result["name"] %></h5>
+      <p><%= result["brand"]%><br/></p>
+      <p><strong> $<%= result["price"]%></strong></p>
+        <p><%= result["size"]%><br/></p>
 
-          <!--  <%= image_tag("3-5.png", class: "rating") %> -->
+      <!--  <%= image_tag("3-5.png", class: "rating") %> -->
 
-      </main>
-      <a href="#" class="button"><i class="fas fa-shopping-cart"></i> Shop</a>
+  </main>
+  <a href="#" class="button"><i class="fas fa-shopping-cart"></i> Shop</a>
 
-  </article>
-  <%end%>
+</article>
+<%end%>
 
 </section>
-
-</body>
-</html>

@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
 
+  resources :collections
   get 'password_resets/new'
   get 'sessions/new'
   root 'welcome#index'
   resources :users
   resources :sessions
   resources :user_steps
+
+  #get '/users/:id' => 'users#show', as: :user
 
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'

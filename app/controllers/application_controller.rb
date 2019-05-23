@@ -5,6 +5,16 @@ class ApplicationController < ActionController::Base
 
 add_flash_types :danger, :info, :warning, :success
 
+def execute_statement(sql)
+  results = ActiveRecord::Base.connection.exec_query(sql)
+
+  if results.present?
+    return results
+  else
+    return nil
+  end
+end
+
 
   def current_user
   @current_user ||= User.find(session[:user_id]) if session[:user_id]
