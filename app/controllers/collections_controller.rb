@@ -10,6 +10,7 @@ class CollectionsController < ApplicationController
   # GET /collections/1
   # GET /collections/1.json
   def show
+    @collection = Collection.find(params[:id])
   end
 
   # GET /collections/new
@@ -26,17 +27,18 @@ class CollectionsController < ApplicationController
   # POST /collections
   # POST /collections.json
   def create
-    #  @user = current_user
+      @user = current_user
   #  @collection = Collection.new(collection_params)
-  #  @collection = @user.collections.create(collection_params)
+    @collection = @user.collections.create(collection_params)
+  #  @collection.save
 
 #current_user.collections.create(
 
 
     respond_to do |format|
       if @collection.save
-        format.html { redirect_to @collection, notice: 'Collection was successfully created.' }
-        format.json { render :show, status: :created, location: @collection }
+       format.html { redirect_to @collection, notice: 'Collection was successfully created.' }
+       format.json { render :show, status: :created, location: @collection }
       else
         format.html { render :new }
         format.json { render json: @collection.errors, status: :unprocessable_entity }
@@ -76,6 +78,7 @@ class CollectionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def collection_params
-      params.fetch(:collection, {})
+      #params.fetch(:collection, {})
+      params.require(:collection).permit(:description)
     end
 end

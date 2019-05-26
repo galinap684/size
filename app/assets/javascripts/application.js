@@ -17,3 +17,14 @@
 //= require popper
 //= require bootstrap
 //= require_tree .
+
+/*
+$(window).load(function(){
+$('#myModal').modal('show');
+ });
+
+
+
+$(".modal-backdrop, #myModal .close, #myModal .btn").live("click", function() {
+  $("#myModal iframe").attr("src", $("#myModal iframe").attr("src"));
+});*/ 

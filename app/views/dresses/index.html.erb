@@ -1,5 +1,18 @@
 
+  <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
 
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+        <%= select_tag 'description', options_for_select(@collections.collect{ |u| [u.description, u.id] }) %>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 <p>
 
   <% if current_user %>
@@ -15,7 +28,7 @@
 Sizafy
 </section>
 
-  <%= link_to "Add Collection", '/collections', :class => 'choiceButton1' %>
+  <%= link_to "View Collections", '/collections', :class => 'choiceButton1' %>
 
 
 
@@ -53,7 +66,25 @@ Sizafy
       <!--  <%= image_tag("3-5.png", class: "rating") %> -->
 
   </main>
-  <a href="#" class="button"><i class="fas fa-shopping-cart"></i> Shop</a>
+
+<!--  <a href="#" class="button"><i class="fas fa-shopping-cart"></i> Shop</a> -->
+  <%= link_to "Shop", result["url"], :class => 'button' %>
+
+
+
+
+
+
+
+
+  <%= link_to 'Add to Collection', "#", data: {toggle: "modal", target: "#myModal"}, class: 'btn btn-primary btn-sm'  %>
+
+<!--  <%= link_to 'Click Here', "#", data: {toggle: "modal", target: "#modal"} %> -->
+
+
+
+
+
 
 </article>
 <%end%>

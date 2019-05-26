@@ -4,11 +4,6 @@ namespace :dresses do
     require 'nokogiri'
     require 'httparty'
     require 'open-uri'
-       # clean database to avoid duplicates
-      #Job.all.each do |job|
-      #   job.destroy!
-      # end
-
 
 
       url = "https://www.revolve.com/dresses/br/a8e981/?navsrc=main&sortBy=newest"
@@ -22,7 +17,6 @@ namespace :dresses do
       #to grab the size: parsed_page.css('label.filters__size-copy').first.text
 
       page = 1
-
 
         #navigating to the inner page for the size info
 
@@ -50,7 +44,8 @@ namespace :dresses do
           name: dress_listing.css('div.product-name').text,
           company: dress_listing.css('div[itemprop="brand"]').text,
           sizes: "{#{sizingarray.join(", ")}}",
-          color: parsed_inner_page.css('span.u-font-primary.u-margin-l--md.selectedColor').text
+          color: parsed_inner_page.css('span.u-font-primary.u-margin-l--md.selectedColor').text,
+          url: "https://www.revolve.com#{dress_listing.at('a')["href"]}"
           }
 
 =begin
@@ -103,12 +98,18 @@ namespace :dresses do
       #    puts ""
 
       @dress = Dress.new
+
       @dress.name = dress[:name]
       @dress.brand = dress[:company]
       @dress.size = dress[:sizes]
       @dress.color = dress[:color]
       @dress.price = dress[:price]
+      @dress.url = dress[:url]
       @dress.save
+
+      #@dress.update_all
+
+      #  @dress.update_all url: null
 
 
           #conn = PG.connect(dbname: 'galinapodstrechnaya', user: 'galinapodstrechnaya')
@@ -122,10 +123,18 @@ namespace :dresses do
    end
 
 
-         desc "Delete all jobs."
+         desc "Delete all dresses."
       task clean: :environment do
-        dress.all.each do |dress|
+        Dress.all.each do |dress|
           dress.destroy!
+        end
+      end
+
+#this doesn't work atm
+      desc "Update all dresses"
+      task update: :environment do
+        Dress.all.each do |dress|
+          dress.update_all
         end
       end
 

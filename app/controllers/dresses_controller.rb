@@ -6,6 +6,8 @@ class DressesController < ApplicationController
   def index
     #  @dresses = dress.all
 
+    @collections = current_user.collections
+
       @user = current_user
     #  conn = PG.connect(dbname: 'galinapodstrechnaya', user: 'galinapodstrechnaya')
     #  @dresses = conn.exec("select * from dresses")
