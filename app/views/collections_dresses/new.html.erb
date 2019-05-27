@@ -1,12 +1,3 @@
-<p id="notice"><%= notice %></p>
-
-<%= @dress.name %>
-<%= @dress.id %>
-
-
-
-
-
 
 
         <%= form_for @collections_dress do |f| %>
@@ -22,29 +13,14 @@
             <%= f.label "Collection", :class => "space" %>
           <!--  <%= f.select(:collection_id, options_for_select(@collections.collect{ |u| [u.id] })) %> -->
 
-<!--<%= f.hidden_field :dress_id, value: 12 %> -->
-      <%= hidden_field_tag "dress_id", @dress.id %>
-
       <!--<%= f.collection_select(:collection_id, @collections.all, :id, :description) %> -->
-          <%= select_tag 'collection_id', options_for_select(@collections.collect{ |u| [u.description, u.id] }) %>
+          <%= select_tag 'collection_id', options_for_select(@collections.collect{ |u| [u.id, u.id] }) %>
           <!--  <%= f.select :collection, (32..45) %> -->
 
             </div>
-
-
-
 
   <%= f.submit "Add", :class => 'submit action-button' %>
 
           </fieldset>
 
         <% end %>
-
-
-
-
-
-
-
-<%= link_to 'Edit', edit_dress_path(@dress) %> |
-<%= link_to 'Back', dresses_path %>

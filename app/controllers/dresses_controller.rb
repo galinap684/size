@@ -1,12 +1,11 @@
 class DressesController < ApplicationController
   before_action :set_dress, only: [:show, :edit, :update, :destroy]
 
-  # GET /dresses
-  # GET /dresses.json
   def index
     #  @dresses = dress.all
 
     @collections = current_user.collections
+
 
       @user = current_user
     #  conn = PG.connect(dbname: 'galinapodstrechnaya', user: 'galinapodstrechnaya')
@@ -55,11 +54,17 @@ class DressesController < ApplicationController
   # GET /dresses/1
   # GET /dresses/1.json
   def show
+    @dress = Dress.find(params[:id])
+      @collections = current_user.collections
+
+      @collections_dress = CollectionsDress.new(col_params)
+
   end
 
   # GET /dresses/new
   def new
     @dress = Dress.new
+    @collections_dress = Collections_dress.new
   end
 
   # GET /dresses/1/edit
@@ -69,9 +74,13 @@ class DressesController < ApplicationController
   # POST /dresses
   # POST /dresses.json
   def create
-    @dress = Dress.new(dress_params)
-
-    respond_to do |format|
+    #@dress = Dress.new(dress_params)
+    @user = current_user
+#  @collection = Collection.new(collection_params)
+  #@collections_dress = @collection.dresses.create(params[:dress])
+  @collections_dress = CollectionsDress.create(col_params)
+  @dress.collections_dresses <<  @collections_dress
+=begin  respond_to do |format|
       if @dress.save
         format.html { redirect_to @dress, notice: 'Dress was successfully created.' }
         format.json { render :show, status: :created, location: @dress }
@@ -80,7 +89,20 @@ class DressesController < ApplicationController
         format.json { render json: @dress.errors, status: :unprocessable_entity }
       end
     end
+=end
+respond_to do |format|
+  if @collections_dress.save
+   format.html { redirect_to '/collections_dresses', notice: 'The item was successfully added.' }
+   format.json { render :show, status: :created, location: 'collections_dresses' }
+  else
+    format.html { render :new }
+    format.json { render json: @collection.errors, status: :unprocessable_entity }
   end
+end
+
+
+  end
+
 
   # PATCH/PUT /dresses/1
   # PATCH/PUT /dresses/1.json
@@ -110,6 +132,10 @@ class DressesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_dress
       @dress = Dress.find(params[:id])
+    end
+
+    def col_params
+      params.permit(:collection_id, :dress_id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

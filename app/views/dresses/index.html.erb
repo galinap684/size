@@ -1,18 +1,5 @@
 
-  <div id="myModal" class="modal fade" role="dialog">
-      <div class="modal-dialog">
 
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-        <%= select_tag 'description', options_for_select(@collections.collect{ |u| [u.description, u.id] }) %>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
 <p>
 
   <% if current_user %>
@@ -72,13 +59,14 @@ Sizafy
 
 
 
+<%= link_to 'Add to Collection', dress_path(result["id"]), class: 'btn btn-primary btn-sm'  %>
 
+  <%= link_to 'Add to Collection', '/collections_dresses/new', class: 'btn btn-primary btn-sm'  %>
 
-
-
+<!-- to display MODAL later on
 
   <%= link_to 'Add to Collection', "#", data: {toggle: "modal", target: "#myModal"}, class: 'btn btn-primary btn-sm'  %>
-
+-->
 <!--  <%= link_to 'Click Here', "#", data: {toggle: "modal", target: "#modal"} %> -->
 
 
