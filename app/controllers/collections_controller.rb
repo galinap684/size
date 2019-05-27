@@ -9,7 +9,12 @@ class CollectionsController < ApplicationController
 
   def show
     @collection = Collection.find(params[:id])
-    #@collections = @user.collections
+    @dressesincollection = @collection.collections_dresses
+
+      @current_dress = []
+      @dressesincollection.each do |c|
+      @current_dress << c.dress_id
+    end
   end
 
   def my

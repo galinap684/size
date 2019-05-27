@@ -1,14 +1,17 @@
 <!--<p id="notice"><%= notice %></p>-->
 
+<!-- the following loop takes the collection's dress_id and prints the name of that dress from the dresses table -->
 
-<%= @collection.description %>
+  <% if @current_dress.length == 0 %>
+      <%= "You don't have any dresses saved here yet." %>
+  <% else %>
+      In the collection, <%= @collection.description %> , you have the following Dresses saved:
+      <div>
+        <% @current_dress.each do |f| %>
+        id: <%= f %>
+        name: <%= Dress.find_by(id: f).name %> <br>
+      </div>
+    <%end%>
+  <%end %>
 
-<% @collection.collections_dresses.each do |c| %>
-   <p><%= c.dress_id %></p>
-
- <% end %>
-
-
-
-<%= link_to 'Edit', edit_collection_path(@collection) %> |
 <%= link_to 'Back', '/mycollections' %>
