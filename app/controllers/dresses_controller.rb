@@ -1,15 +1,15 @@
 class DressesController < ApplicationController
-  before_action :set_dress, only: [:show, :edit, :update, :destroy]
+
+  before_action :authorize
 
   def index
-    #  @dresses = dress.all
 
     @collections = current_user.collections
 
 
       @user = current_user
-    #  conn = PG.connect(dbname: 'galinapodstrechnaya', user: 'galinapodstrechnaya')
-    #  @dresses = conn.exec("select * from dresses")
+      #  conn = PG.connect(dbname: 'galinapodstrechnaya', user: 'galinapodstrechnaya')
+      #  @dresses = conn.exec("select * from dresses")
 
 
       if @user[:waist] < 26 && @user[:bust] < 33 && @user[:hips] < 37
@@ -51,75 +51,53 @@ class DressesController < ApplicationController
       end
     end
 
-  # GET /dresses/1
-  # GET /dresses/1.json
+
   def show
     @dress = Dress.find(params[:id])
-      @collections = current_user.collections
-
-      @collections_dress = CollectionsDress.new(col_params)
-
+    @collections = current_user.collections
+    @collections_dress = CollectionsDress.new(col_params)
   end
 
-  # GET /dresses/new
+
   def new
     @dress = Dress.new
     @collections_dress = Collections_dress.new
   end
 
-  # GET /dresses/1/edit
+
   def edit
   end
 
-  # POST /dresses
-  # POST /dresses.json
+
   def create
-    #@dress = Dress.new(dress_params)
     @user = current_user
-#  @collection = Collection.new(collection_params)
-  #@collections_dress = @collection.dresses.create(params[:dress])
-  @collections_dress = CollectionsDress.create(col_params)
-  @dress.collections_dresses <<  @collections_dress
-=begin  respond_to do |format|
-      if @dress.save
-        format.html { redirect_to @dress, notice: 'Dress was successfully created.' }
-        format.json { render :show, status: :created, location: @dress }
+    @collections_dress = CollectionsDress.create(col_params)
+    @dress.collections_dresses <<  @collections_dress
+
+    respond_to do |format|
+      if @collections_dress.save
+        format.html { redirect_to '/collections_dresses', notice: 'The item was successfully added.' }
+        format.json { render :show, status: :created, location: 'collections_dresses' }
       else
         format.html { render :new }
-        format.json { render json: @dress.errors, status: :unprocessable_entity }
+        format.json { render json: @collection.errors, status: :unprocessable_entity }
       end
     end
-=end
-respond_to do |format|
-  if @collections_dress.save
-   format.html { redirect_to '/collections_dresses', notice: 'The item was successfully added.' }
-   format.json { render :show, status: :created, location: 'collections_dresses' }
-  else
-    format.html { render :new }
-    format.json { render json: @collection.errors, status: :unprocessable_entity }
-  end
-end
-
-
   end
 
 
-  # PATCH/PUT /dresses/1
-  # PATCH/PUT /dresses/1.json
   def update
     respond_to do |format|
-      if @dress.update(dress_params)
-        format.html { redirect_to @dress, notice: 'Dress was successfully updated.' }
-        format.json { render :show, status: :ok, location: @dress }
+      if @collections_dress.update(col_params)
+        format.html { redirect_to @collections_dress, notice: 'Dress was successfully updated.' }
+        format.json { render :show, status: :ok, location: @collections_dress }
       else
         format.html { render :edit }
-        format.json { render json: @dress.errors, status: :unprocessable_entity }
+        format.json { render json: @collections_dress.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /dresses/1
-  # DELETE /dresses/1.json
   def destroy
     @dress.destroy
     respond_to do |format|
@@ -129,7 +107,7 @@ end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_dress
       @dress = Dress.find(params[:id])
     end
@@ -138,7 +116,6 @@ end
       params.permit(:collection_id, :dress_id)
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def dress_params
       params.fetch(:dress, {})
     end

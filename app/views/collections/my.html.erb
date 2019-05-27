@@ -1,0 +1,18 @@
+<div>
+<%= link_to 'Back to Dresses', '/dresses' %>
+</div>
+
+<% @collections.each do |collection| %>
+  <tr>
+    <td><%= collection.description %></td>
+    <td><%= link_to 'Show', collection %></td>
+    <td><%= link_to 'Edit', edit_collection_path(collection) %></td>
+    <td><%= link_to 'Destroy', collection, method: :delete, data: { confirm: 'Are you sure?' } %></td><br>
+  </tr>
+
+
+
+
+<% end %>
+
+<%= link_to 'New Collection', new_collection_path %>

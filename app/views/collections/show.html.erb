@@ -2,5 +2,13 @@
 
 
 <%= @collection.description %>
+
+<% @collection.collections_dresses.each do |c| %>
+   <p><%= c.dress_id %></p>
+
+ <% end %>
+
+
+
 <%= link_to 'Edit', edit_collection_path(@collection) %> |
-<%= link_to 'Back', collections_path %>
+<%= link_to 'Back', '/mycollections' %>

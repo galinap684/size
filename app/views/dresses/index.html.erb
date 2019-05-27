@@ -1,35 +1,29 @@
 
 
 <p>
-
   <% if current_user %>
-  Logged in as <%= current_user.name %> |
-  <%= link_to "Log out", session_path("current"), method: "delete" %>
+    Logged in as <%= current_user.name %> |
+    <%= link_to "Log out", session_path("current"), method: "delete" %>
   <% else %>
-
-<% end %>
+  <% end %>
+|  <%= link_to "View My Collections", '/mycollections', :class => 'choiceButton1' %>
 </p>
 
 
-<section class="hero-logo">
-Sizafy
-</section>
+<section class="hero-logo">Sizafy</section>
 
-  <%= link_to "View Collections", '/collections', :class => 'choiceButton1' %>
 
 
 
 <section class="filter">
 <ul id="filter-items">
-<!--  <li>Size (00, XXS) &nbsp;▼ -->
 <li>Color &nbsp;▼
 <li>Price ($50 - $100) &nbsp;▼
 <li>Rating (Above 4 Stars) &nbsp;▼
 </ul>
 </section>
 
-<!--
-<section class="sidebar"><br><a href="#">Tops</a><br><a href="#">Bottoms</a><br></section> -->
+<!-- <section class="sidebar"><br><a href="#">Tops</a><br><a href="#">Bottoms</a><br></section> -->
 
 
 <section class="card-container">
@@ -37,12 +31,9 @@ Sizafy
 
 <% @dresses.each do |result| %>
 
-
-
 <article class="card">
   <figure class="card__thumbnail">
     <!--  <%= image_tag("", class: "clothing_image") %> -->
-
   </figure>
   <main class="card__description">
       <h6><%= result["name"] %></h5>
@@ -51,27 +42,19 @@ Sizafy
         <p><%= result["size"]%><br/></p>
 
       <!--  <%= image_tag("3-5.png", class: "rating") %> -->
-
   </main>
 
 <!--  <a href="#" class="button"><i class="fas fa-shopping-cart"></i> Shop</a> -->
   <%= link_to "Shop", result["url"], :class => 'button' %>
+  <%= link_to 'Add to Collection', dress_path(result["id"]), class: 'btn btn-primary btn-sm'  %>
 
 
-
-<%= link_to 'Add to Collection', dress_path(result["id"]), class: 'btn btn-primary btn-sm'  %>
-
-  <%= link_to 'Add to Collection', '/collections_dresses/new', class: 'btn btn-primary btn-sm'  %>
 
 <!-- to display MODAL later on
 
   <%= link_to 'Add to Collection', "#", data: {toggle: "modal", target: "#myModal"}, class: 'btn btn-primary btn-sm'  %>
 -->
 <!--  <%= link_to 'Click Here', "#", data: {toggle: "modal", target: "#modal"} %> -->
-
-
-
-
 
 
 </article>

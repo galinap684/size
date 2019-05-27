@@ -21,6 +21,16 @@ end
 end
 helper_method :current_user
 
+def authorize
+
+
+  redirect_to root_url unless current_user
+  #flash[:notice] = 'Please log in first!'
+
+
+
+ end
+
 
 
 

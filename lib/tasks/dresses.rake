@@ -107,13 +107,8 @@ namespace :dresses do
       @dress.url = dress[:url]
       @dress.save
 
-      #@dress.update_all
-
-      #  @dress.update_all url: null
-
-
-          #conn = PG.connect(dbname: 'galinapodstrechnaya', user: 'galinapodstrechnaya')
-          #conn.exec("update dresses (name, price, brand, color, size) values ('#{dress[:name]}', #{dress[:price]}, '#{dress[:company]}', '#{dress[:color]}', '#{dress[:sizes]}')")
+        #conn = PG.connect(dbname: 'galinapodstrechnaya', user: 'galinapodstrechnaya')
+        #conn.exec("update dresses (name, price, brand, color, size) values ('#{dress[:name]}', #{dress[:price]}, '#{dress[:company]}', '#{dress[:color]}', '#{dress[:sizes]}')")
 
          end
          #byebug
